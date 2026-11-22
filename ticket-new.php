@@ -15,7 +15,7 @@
                     <nav class="nav-links" aria-label="Main navigation">
                         <a class="nav-link" href="/index.php">Tickets</a>
                         <a class="nav-link is-active" href="/ticket-new.php">New Ticket</a>
-                        <a class="nav-link" href="/users.php">Users</a>
+                        <a class="nav-link" href="/user.php">Users</a>
                     </nav>
                 </div>
                 <div class="nav-right">
