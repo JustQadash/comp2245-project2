@@ -130,6 +130,7 @@
         buttons.forEach(button => {
           const active = button.dataset.ticketFilter === filter;
           button.classList.toggle('active', active);
+          button.classList.toggle('is-active', active);
           button.setAttribute('aria-pressed', String(active));
         });
       } catch (error) {
@@ -153,9 +154,10 @@
 
   function makeNote(note) {
     const item = document.createElement('li');
-    item.className = 'ticket-note';
+    item.className = 'note-item';
 
     const heading = document.createElement('div');
+    heading.className = 'note-meta';
     const author = document.createElement('strong');
     author.textContent = note.author_name;
     const date = document.createElement('small');
@@ -164,6 +166,7 @@
 
     const body = document.createElement('p');
     body.textContent = note.body;
+    body.className = 'note-body';
     item.append(heading, body);
     return item;
   }
@@ -226,7 +229,12 @@
         const newStatus = data.ticket.status;
         savedStatus = newStatus;
         select.value = newStatus;
-        if (statusText) statusText.textContent = newStatus;
+        if (statusText) {
+          statusText.textContent = newStatus;
+          statusText.classList.remove('badge-status-open', 'badge-status-in-progress', 'badge-status-closed', 'badge-status-progress');
+          const badgeClasses = { 'Open': 'badge-status-open', 'In progress': 'badge-status-in-progress', 'Closed': 'badge-status-closed' };
+          if (badgeClasses[newStatus]) statusText.classList.add(badgeClasses[newStatus]);
+        }
         if (updatedAt) updatedAt.textContent = data.ticket.updated_at;
         showMessage(message, 'Status saved.', 'success');
       } catch (error) {
@@ -274,5 +282,12 @@
     initAddNote(ticketId);
     initStatusUpdate(ticketId);
     initAssignToMe(ticketId);
+    const trigger = $('#delete-trigger-btn');
+    const box = $('#delete-confirm-box');
+    const cancel = $('#cancel-delete-btn');
+    if (trigger && box) {
+      trigger.addEventListener('click', () => { box.hidden = false; });
+      if (cancel) cancel.addEventListener('click', () => { box.hidden = true; });
+    }
   });
 })();

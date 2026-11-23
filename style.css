@@ -595,3 +595,118 @@ textarea {
     justify-content: space-between;
   }
 }
+
+
+/* =========================================
+   ADDITIONAL STYLES FOR TICKETS AND AJAX
+   ========================================= */
+
+/* Notes added dynamically through AJAX */
+
+.ticket-note {
+  list-style: none;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background-color: rgb(250, 251, 254);
+}
+
+.ticket-note strong {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+.ticket-note small {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.ticket-note p {
+  margin: 0.35rem 0 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Support a UL or OL used as the notes list */
+
+.notes-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+/* Ticket filtering selected button */
+
+.filter-btn.active,
+.filter-btn[aria-pressed="true"] {
+  background-color: var(--accent);
+  color: var(--text-inverse);
+  border-color: var(--accent);
+}
+
+/* Messages from AJAX requests */
+
+.status-feedback,
+#note-message,
+#status-message,
+#assign-message,
+#tickets-message {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+#note-message[hidden],
+#status-message[hidden],
+#assign-message[hidden],
+#tickets-message[hidden] {
+  display: none;
+}
+
+/* Accessible focus indicators */
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Prevent content from overflowing */
+
+.ticket-layout > *,
+.users-layout > * {
+  min-width: 0;
+}
+
+.meta-row dd {
+  overflow-wrap: anywhere;
+}
+
+/* Responsive controls and forms */
+
+@media (max-width: 600px) {
+
+  .page-header {
+    align-items: flex-start;
+  }
+
+  .header-actions {
+    width: 100%;
+  }
+
+  .notes-list {
+    padding-left: 0;
+  }
+
+  .form-actions {
+    align-items: stretch;
+  }
+
+  .data-table {
+    min-width: 640px;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
