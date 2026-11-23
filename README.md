@@ -14,9 +14,9 @@ Demo admin login: `admin@fixit.test` / `password123` (requires matching hashed s
 | Name | GitHub username | What they worked on |
 | --- | --- | --- |
 | Anius Daniel | aniusdaniel | JavaScript/AJAX features and PHP API integration, mising parts   |
-| [Other member] | [username] | [contribution] |
-| [Other member] | [username] | [contribution] |
-| [Other member] | [username] | [contribution] |
+| [Qadash Charles] | [JustQadash] | [Database and SQL] |
+| [Reanna Christopher] | [Reaannaakila] | [Styling and Page Layout] |
+| [Varyl Browne] | [Varyl3] | [Security] |
 
 ## Member seed logins
 Add the actual email addresses of your seeded member accounts from `schema.sql` here.
